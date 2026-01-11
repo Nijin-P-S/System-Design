@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <h2>WebSocket Test</h2>
+
+  <script>
+    const socket = new WebSocket("ws://localhost:8080/ws");
+
+    socket.onopen = () => {
+      console.log("Connected");
+      socket.send("Hello Server!");
+    };
+
+    socket.onmessage = (event) => {
+      console.log("Message:", event.data);
+    };
+
+    socket.onerror = (err) => {
+      console.error("WebSocket error", err);
+    };
+  </script>
+</body>
+</html>
